@@ -8,11 +8,8 @@ import java.util.Scanner;
  * @author Andrea Palomo
  */
 public class Dificultad {
-    Random facil=new Random();
-    int f= 1+facil.nextInt(6);
-    int matriz [] [] = new int [5][8];
     Scanner condicion= new Scanner(System.in);
-    String r;
+    public static String r;
     public void Dificultad(String[] args) {
         Scanner menu= new Scanner(System.in);
         int c;
@@ -27,24 +24,22 @@ public class Dificultad {
         switch(c){//se utiliza un switch para que al ingresar un número sea el del menú y se desarrolle
             //lo que desea el usuario hacer
             case 1:
-                do{
                 System.out.println("DIFICULTAD FÁCIL SELECCIONADA");
                 System.out.println("JUGADORES DE 2 A 4");
                 System.out.println("Subidas de 5 a 10");
                 System.out.println("Bajones de 5 a 10");
-                System.out.print("¿Desea elegir esta dificultad (responda F o f)? Sino presiones otra tecla para regresar");
+                System.out.print("¿Desea elegir esta dificultad (responda F para elegir esta opción)?  ");
                 r=condicion.next();
-                }while(r.equals("f")||r.equals("F"));
+                System.out.println("Después de elegir esta opción regrese al menú principal");
                 break;
             case 2:
-               do{
                 System.out.println("DIFICULTAD DIFÍCIL SELECCIONADA");
                 System.out.println("JUGADORES DE 2 A 4");
                 System.out.println("Subidas de 20 a 40");
                 System.out.println("Bajones de 20 a 40");
-                System.out.print("¿Desea elegir esta dificultad (responda D o d)? Sino presiones otra tecla para regresar");
+                System.out.print("¿Desea elegir esta dificultad (responda D para elegir esta opción)?  ");
                 r=condicion.next();
-                }while(r.equals("d")||r.equals("D"));
+                System.out.println("Después de elegir esta opción regrese al menú principal");
                 break;
             case 3:
                 IPC1Practica1_201700670 entrad= new IPC1Practica1_201700670();//regresará al menú principal
