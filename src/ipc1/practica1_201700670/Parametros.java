@@ -1,6 +1,7 @@
 
 package ipc1.practica1_201700670;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -8,14 +9,15 @@ import java.util.Scanner;
  * @author Andrea Palomo
  */
 public class Parametros {
-        public static int jugadores; //VARIABLES GLOBALES DEFINIDAS PARA UTILIZARLA EN CUALQUIER CLASE
-        public static String[]simb= new String [4];
-        public static int s;
-        public static int b;
-        public static int i;
-        public static int k;
-        public static Scanner a= new Scanner (System.in);
-        public static Scanner j= new Scanner (System.in);
+        public static int cantJugadores; //VARIABLES GLOBALES DEFINIDAS PARA UTILIZARLA EN CUALQUIER CLASE
+        public  String[]simb= new String [4];
+        int s;
+        int b;
+        int i;
+        int k;
+        public Scanner a= new Scanner (System.in);
+        public Scanner j= new Scanner (System.in);
+        Random aleatorio;
      public void Parametros(String[] args) {
         
         Scanner l= new Scanner (System.in);
@@ -24,7 +26,7 @@ public class Parametros {
         String sim;
         int c;
         do{ 
-        System.out.println("MENÚ DE OPCIONES DE USUARIOS");//menú de Usuarios y opciones
+        System.out.println("MENÚ DE OPCIONES DE PARÁMETROS INICIALES");//menú de Usuarios y opciones
         System.out.println("1. JUGADORES");
         System.out.println("2. SUBIDAS Y BAJONES");
         System.out.println("3. REGRESAR A MENÚ PRINCIPAL");
@@ -34,15 +36,31 @@ public class Parametros {
         switch(c){//se utiliza un switch para que al ingresar un número sea el del menú y se desarrolle
             //lo que desea el usuario hacer
             case 1:
-            {
-                System.out.print("Ingrese la cantidad de jugadores: ");
-                jugadores=j.nextInt();
-                if(jugadores<2){
+              if((Dificultad.r).equals("F")){
+                System.out.print("Ingrese la cantidad de jugadores de (2-3): ");
+                cantJugadores=j.nextInt();
+                if(cantJugadores<2){
                     System.out.println("La cantidad de jugadores no es permitido debe haber al menos 2");
                     System.out.println("Ingrese nuevamente la cantidad de jugadores: ");
-                    jugadores=j.nextInt();
-                }}
-                for (i=0;i<jugadores;i++){
+                    cantJugadores=j.nextInt();
+//                }else if(cantJugadores>3){
+//                    System.out.println("La cantidad de jugadores no es permitido deben ser del rango (2-3)");
+//                    System.out.println("Ingrese nuevamente la cantidad de jugadores: ");
+//                    cantJugadores=j.nextInt();
+                }
+              }else{
+                  System.out.print("Ingrese la cantidad de jugadores de (2-4): ");
+                cantJugadores=j.nextInt();
+                if(cantJugadores<2){
+                    System.out.println("La cantidad de jugadores no es permitido debe haber al menos 2");
+                    System.out.println("Ingrese nuevamente la cantidad de jugadores: ");
+                    cantJugadores=j.nextInt();
+                }else{
+//                    System.out.println("La cantidad de jugadores no es permitido deben ser del rango (2-4)");
+//                    System.out.println("Ingrese nuevamente la cantidad de jugadores: ");
+//                    cantJugadores=j.nextInt();
+              }
+                for (i=0;i<cantJugadores;i++)
                     System.out.print("Ingrese símbolo jugador: "+(i+1)+" (no pueden ser iguales para todos los jugadores): ");
                     sim=a.next();
                     simb[i]=sim;
@@ -52,7 +70,13 @@ public class Parametros {
                             sim=a.next();
                             simb[i]=sim;
                         }
+                        if(simb[i].equals("&")){
+                            System.out.println("Éste símbolo no es permitido, ingrese otro");
+                            sim=a.next();
+                            simb[i]=sim;
+                        }
                     }
+//                    ordenar(0);
                 }
                 System.out.println(" ");
                 break;
@@ -63,7 +87,14 @@ public class Parametros {
                     System.out.println("Ingrese subidas: ");
                     s=l.nextInt();
                     System.out.println("Ingrese bajadas: ");
-                    b=m.nextInt();
+                    b=m.nextInt(); 
+                    if(s<5&&s>10){
+                        System.out.print("La subida no se encuentra en el rango ingrese de nuevo: ");
+                        s=l.nextInt();
+                    }else if(b<5&&b>10){
+                        System.out.print("La bajada no se encuentra en el rango ingrese de nuevo: ");
+                         b=m.nextInt(); 
+                    }
                 }
                 else if ((Dificultad.r).equals("D")){
                     System.out.println("Ingrese las subidas para este rango (20-40)");
@@ -71,6 +102,13 @@ public class Parametros {
                     s=l.nextInt();
                     System.out.println("Ingrese bajadas: ");
                     b=m.nextInt();
+                    if(s<20&&s>40){
+                        System.out.print("La subida no se encuentra en el rango ingrese de nuevo: ");
+                        s=l.nextInt();
+                    }else if(b<20&&b>40){
+                        System.out.print("La bajada no se encuentra en el rango ingrese de nuevo: ");
+                         b=m.nextInt(); 
+                    }
                 }else{
                     Parametros entrados= new Parametros();
                     entrados.Parametros(args);
@@ -86,4 +124,20 @@ public class Parametros {
         }
         }while(c<=3);//la condición se cumple siempre y cuando el usuario ingrese de 1-3
     }
-}
+//     public void ordenar(int count){
+//         String temp=null;
+//         int index_jugador_uno = randoms();
+//         int aleat = randoms();
+//         int index_jugador_dos = aleat != index_jugador_uno ? aleat : randoms();
+//         temp = simb[index_jugador_uno];
+//         simb[index_jugador_uno] = simb[index_jugador_dos];
+//         simb[index_jugador_dos] = temp;
+//         if (count < 3) {
+//             ordenar(count + 1);
+//         }
+//
+//     }
+//     public int randoms(){
+//        if (aleatorio==null)aleatorio=new Random();
+//        return aleatorio.nextInt();
+    }

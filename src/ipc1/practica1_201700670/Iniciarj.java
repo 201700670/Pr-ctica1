@@ -7,8 +7,13 @@ import java.util.Random;
  * @author Andrea Palomo
  */
 public class Iniciarj {
-    Random jugador=new Random();
+    Random aleatorio;
+     String matriz [] [];
+     String jugador[][];
+     Parametros parametros;
     public void Iniciarj(String[] args) {
+        parametros = new Parametros();
+        
         Scanner da=new Scanner(System.in);
         int ran;
         String res;
@@ -16,20 +21,46 @@ public class Iniciarj {
            System.out.println("");
         System.out.println("AVISO!!!!PARA ESTA SECCIÓN TUVO QUE HABER INGRESADO LOS DATOS EN DIFICULTAD Y PARÁMETROS");
         System.out.println("");
+        System.out.println("¿Ya ingresó los datos de dificultad y parámetros (Responder Sí=s 'ó' No=N?: ");
+        res=da.next();
+        do{
             if ((Dificultad.r).equals("F")){
-            System.out.println("La cantidad de jugadores son: "+(Parametros.jugadores));
-            if((Parametros.jugadores)==1){
-                System.out.println("El jugador número 1");
+            System.out.println("La cantidad de jugadores son: "+(Parametros.cantJugadores));
+                for (int i=0;i<Parametros.cantJugadores;i++){
+                    System.out.println("Turno de jugador: "+randoms());
+                    matriz();
+                    generaTabla();
+                }
             }
-            else if((Parametros.jugadores)==2){
-                System.out.println("Jugador número 2");
+             }while(res.equals("S"));
+    }
+    public void matriz(){
+        if ((Dificultad.r).equals("F")){
+            matriz= new String [5][8];
+        } else{
+                    
+                    matriz= new String [20][10];
             }
-            else if((Parametros.jugadores)==3){
-                System.out.println("Jugador número 3");
+    }
+        public void generaTabla(){
+            if ((Dificultad.r).equals("F")){
+            for(int i=0;i<5;i++){
+                System.out.println("--------------------------------");
+                for(int j=0;j<8;j++){
+                    System.out.print("|    ");
+                }
+                System.out.println();
             }
-            else if((Parametros.jugadores)==4){
-                
-            }
-            }
+          } 
+        }
+    public int randoms(){
+        if (aleatorio==null)aleatorio=new Random();
+        int i= aleatorio.nextInt();
+        if (i<1||i>6)return randoms();
+        else return i;
+    }
+    
+    public String getTurno(){
+        
     }
 }
