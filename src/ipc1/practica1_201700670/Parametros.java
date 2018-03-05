@@ -10,13 +10,13 @@ import java.util.Scanner;
  */
 public class Parametros {
         public static int cantJugadores; //VARIABLES GLOBALES DEFINIDAS PARA UTILIZARLA EN CUALQUIER CLASE
-        public  String[]simb= new String [4];
+        public  static String[]simb= new String [4];
         int s;
         int b;
         int i;
         int k;
-        public Scanner a= new Scanner (System.in);
-        public Scanner j= new Scanner (System.in);
+        public static Scanner a= new Scanner (System.in);
+        public static Scanner j= new Scanner (System.in);
         Random aleatorio;
      public void Parametros(String[] args) {
         
@@ -36,47 +36,73 @@ public class Parametros {
         switch(c){//se utiliza un switch para que al ingresar un número sea el del menú y se desarrolle
             //lo que desea el usuario hacer
             case 1:
-              if((Dificultad.r).equals("F")){
-                System.out.print("Ingrese la cantidad de jugadores de (2-3): ");
+                if((Dificultad.r).equals("F")){
+                    System.out.println("LA CANTIDAD DE JUGADORES ES DE (2-3");
+                System.out.print("Ingrese la cantidad de jugadores: ");
                 cantJugadores=j.nextInt();
                 if(cantJugadores<2){
                     System.out.println("La cantidad de jugadores no es permitido debe haber al menos 2");
-                    System.out.println("Ingrese nuevamente la cantidad de jugadores: ");
+                    System.out.print("Ingrese nuevamente la cantidad de jugadores: ");
                     cantJugadores=j.nextInt();
-//                }else if(cantJugadores>3){
-//                    System.out.println("La cantidad de jugadores no es permitido deben ser del rango (2-3)");
-//                    System.out.println("Ingrese nuevamente la cantidad de jugadores: ");
-//                    cantJugadores=j.nextInt();
                 }
-              }else{
-                  System.out.print("Ingrese la cantidad de jugadores de (2-4): ");
-                cantJugadores=j.nextInt();
-                if(cantJugadores<2){
-                    System.out.println("La cantidad de jugadores no es permitido debe haber al menos 2");
-                    System.out.println("Ingrese nuevamente la cantidad de jugadores: ");
+               if(cantJugadores>3){
+                    System.out.println("La cantidad de jugadores no debe ser mayor a 3");
+                    System.out.print("Ingrese nuevamente la cantidad de jugadores: ");
                     cantJugadores=j.nextInt();
-                }else{
-//                    System.out.println("La cantidad de jugadores no es permitido deben ser del rango (2-4)");
-//                    System.out.println("Ingrese nuevamente la cantidad de jugadores: ");
-//                    cantJugadores=j.nextInt();
-              }
-                for (i=0;i<cantJugadores;i++)
+                }
+                for (i=0;i<cantJugadores;i++){
                     System.out.print("Ingrese símbolo jugador: "+(i+1)+" (no pueden ser iguales para todos los jugadores): ");
                     sim=a.next();
                     simb[i]=sim;
-                    for (k=0; k<i; k++){
-                        if(simb[i].equals(simb[k])){
-                            System.out.println("El símbolo ya existe, ingrese de nuevo");
+                     if((simb[i].equals("$"))){
+                            System.out.println("Ingrese de nuevo el símbolo ");
                             sim=a.next();
                             simb[i]=sim;
-                        }
-                        if(simb[i].equals("&")){
-                            System.out.println("Éste símbolo no es permitido, ingrese otro");
+                                }
+                    for (k=0; k<i; k++){
+                        if(simb[i].equals(simb[k])){
+                            System.out.println("Ingrese de nuevo el símbolo ");
                             sim=a.next();
                             simb[i]=sim;
                         }
                     }
-//                    ordenar(0);
+                }
+                }
+                if((Dificultad.r).equals("D")){
+                System.out.print("Ingrese la cantidad de jugadores: ");
+                cantJugadores=j.nextInt();
+                if(cantJugadores<2){
+                    System.out.println("La cantidad de jugadores no es permitido debe haber al menos 2");
+                    System.out.println("Ingrese nuevamente la cantidad de jugadores: ");
+                    cantJugadores=j.nextInt();
+                }
+                if(cantJugadores>4){
+                    System.out.println("La cantidad de jugadores no debe ser mayor a 4");
+                    System.out.print("Ingrese nuevamente la cantidad de jugadores: ");
+                    cantJugadores=j.nextInt();
+                }
+                for (i=0;i<cantJugadores;i++){
+                    System.out.print("Ingrese símbolo jugador: "+(i+1)+" (no pueden ser iguales para todos los jugadores): ");
+                    sim=a.next();
+                    simb[i]=sim;
+                     if((simb[i].equals("$"))){
+                            System.out.println("Ingrese de nuevo el símbolo ");
+                            sim=a.next();
+                            simb[i]=sim;
+                                }
+                    for (k=0; k<i; k++){
+                        if(simb[i].equals(simb[k])){
+                            System.out.println("Ingrese de nuevo el símbolo ");
+                            sim=a.next();
+                            simb[i]=sim;
+                        }
+                        if((simb[i].equals("$"))){
+                            System.out.println("Ingrese de nuevo el símbolo ");
+                            sim=a.next();
+                            simb[i]=sim;
+                                }
+                    }
+                }
                 }
                 System.out.println(" ");
                 break;
@@ -91,7 +117,8 @@ public class Parametros {
                     if(s<5&&s>10){
                         System.out.print("La subida no se encuentra en el rango ingrese de nuevo: ");
                         s=l.nextInt();
-                    }else if(b<5&&b>10){
+                    }
+                        if(b<5&&b>10){
                         System.out.print("La bajada no se encuentra en el rango ingrese de nuevo: ");
                          b=m.nextInt(); 
                     }
@@ -105,14 +132,15 @@ public class Parametros {
                     if(s<20&&s>40){
                         System.out.print("La subida no se encuentra en el rango ingrese de nuevo: ");
                         s=l.nextInt();
-                    }else if(b<20&&b>40){
+                    } 
+                        if(b<20&&b>40){
                         System.out.print("La bajada no se encuentra en el rango ingrese de nuevo: ");
                          b=m.nextInt(); 
                     }
-                }else{
-                    Parametros entrados= new Parametros();
-                    entrados.Parametros(args);
                 }
+                    IPC1Practica1_201700670 entrado= new IPC1Practica1_201700670();//regresará al menú principal
+               entrado.main(args);
+                
                 break;
             case 3:
                 IPC1Practica1_201700670 entrad= new IPC1Practica1_201700670();//regresará al menú principal

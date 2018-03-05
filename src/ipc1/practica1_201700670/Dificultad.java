@@ -14,7 +14,7 @@ public class Dificultad {
         Scanner menu= new Scanner(System.in);
         int c;
         do{ 
-        System.out.println("MENÚ DE OPCIONES DE USUARIOS");//menú de Usuarios y opciones
+        System.out.println("MENÚ DE OPCIONES DE DIFICULTAD");//menú de Usuarios y opciones
         System.out.println("1. FACIL");
         System.out.println("2. DIFICIL");
         System.out.println("3. REGRESAR MENÚ PRINCIPAL");
