@@ -10,14 +10,14 @@ import java.util.Scanner;
  */
 public class Parametros {
         public static int cantJugadores; //VARIABLES GLOBALES DEFINIDAS PARA UTILIZARLA EN CUALQUIER CLASE
-        public  static String[]simb= new String [4];
+        public  static String[]simb= new String [4];//Define que se utilizará 4 datos de forma global guardados
         int s;
         int b;
         int i;
         int k;
         public static Scanner a= new Scanner (System.in);
         public static Scanner j= new Scanner (System.in);
-        Random aleatorio;
+        Random aleatorio;//
      public void Parametros(String[] args) {
         
         Scanner l= new Scanner (System.in);
@@ -26,7 +26,7 @@ public class Parametros {
         String sim;
         int c;
         do{ 
-        System.out.println("MENÚ DE OPCIONES DE PARÁMETROS INICIALES");//menú de Usuarios y opciones
+        System.out.println("MENÚ DE OPCIONES DE PARÁMETROS INICIALES");//menú de parametros iniciales
         System.out.println("1. JUGADORES");
         System.out.println("2. SUBIDAS Y BAJONES");
         System.out.println("3. REGRESAR A MENÚ PRINCIPAL");
@@ -36,10 +36,10 @@ public class Parametros {
         switch(c){//se utiliza un switch para que al ingresar un número sea el del menú y se desarrolle
             //lo que desea el usuario hacer
             case 1:
-                if((Dificultad.r).equals("F")){
-                    System.out.println("LA CANTIDAD DE JUGADORES ES DE (2-3");
+                if((Dificultad.r).equals("F")){//se utiliza la condición de la dificultad (Fácil)
+                    System.out.println("LA CANTIDAD DE JUGADORES ES DE (2-3)");
                 System.out.print("Ingrese la cantidad de jugadores: ");
-                cantJugadores=j.nextInt();
+                cantJugadores=j.nextInt();//Ingresa cantidad de jugadores establecidos por la dificultad
                 if(cantJugadores<2){
                     System.out.println("La cantidad de jugadores no es permitido debe haber al menos 2");
                     System.out.print("Ingrese nuevamente la cantidad de jugadores: ");
@@ -50,7 +50,7 @@ public class Parametros {
                     System.out.print("Ingrese nuevamente la cantidad de jugadores: ");
                     cantJugadores=j.nextInt();
                 }
-                for (i=0;i<cantJugadores;i++){
+                for (i=0;i<cantJugadores;i++){//ingresa el símbolo el jugador para aparecer en pantalla
                     System.out.print("Ingrese símbolo jugador: "+(i+1)+" (no pueden ser iguales para todos los jugadores): ");
                     sim=a.next();
                     simb[i]=sim;
@@ -68,9 +68,10 @@ public class Parametros {
                     }
                 }
                 }
-                if((Dificultad.r).equals("D")){
+                if((Dificultad.r).equals("D")){//según la dificultad(difícil) aparecerá esta condición
+                    System.out.println("LA CANTIDAD DE JUGADORES ES DE (2-4)");
                 System.out.print("Ingrese la cantidad de jugadores: ");
-                cantJugadores=j.nextInt();
+                cantJugadores=j.nextInt();//cantidad de jugadores establecidos según la dificultad
                 if(cantJugadores<2){
                     System.out.println("La cantidad de jugadores no es permitido debe haber al menos 2");
                     System.out.println("Ingrese nuevamente la cantidad de jugadores: ");
@@ -81,7 +82,7 @@ public class Parametros {
                     System.out.print("Ingrese nuevamente la cantidad de jugadores: ");
                     cantJugadores=j.nextInt();
                 }
-                for (i=0;i<cantJugadores;i++){
+                for (i=0;i<cantJugadores;i++){//ingresa el símbolo el jugador
                     System.out.print("Ingrese símbolo jugador: "+(i+1)+" (no pueden ser iguales para todos los jugadores): ");
                     sim=a.next();
                     simb[i]=sim;
@@ -104,6 +105,7 @@ public class Parametros {
                     }
                 }
                 }
+                System.out.println("AHORA DEBERÁ INGRESAR A SUBIDAS Y BAJONES DEL MENÚ SIGUIENTE");
                 System.out.println(" ");
                 break;
             case 2:
@@ -111,9 +113,9 @@ public class Parametros {
                 if ((Dificultad.r).equals("F")){
                     System.out.println("Ingrese las subidas para este rango (5-10)");
                     System.out.println("Ingrese subidas: ");
-                    s=l.nextInt();
+                    s=l.nextInt();//DETERMINA LAS SUBIDAS EN LAS ESCALERAS
                     System.out.println("Ingrese bajadas: ");
-                    b=m.nextInt(); 
+                    b=m.nextInt(); //DETERMINA LAS BAJADAS EN LAS ESCALERAS
                     if(s<5&&s>10){
                         System.out.print("La subida no se encuentra en el rango ingrese de nuevo: ");
                         s=l.nextInt();
@@ -126,9 +128,9 @@ public class Parametros {
                 else if ((Dificultad.r).equals("D")){
                     System.out.println("Ingrese las subidas para este rango (20-40)");
                     System.out.println("Ingrese subidas: ");
-                    s=l.nextInt();
+                    s=l.nextInt();//DETERMINA LAS SUBIDAS DE EN LAS ESCALERAS
                     System.out.println("Ingrese bajadas: ");
-                    b=m.nextInt();
+                    b=m.nextInt();//DETERMINA LAS BAJADAS EN LAS ESCALERAS
                     if(s<20&&s>40){
                         System.out.print("La subida no se encuentra en el rango ingrese de nuevo: ");
                         s=l.nextInt();
@@ -152,20 +154,5 @@ public class Parametros {
         }
         }while(c<=3);//la condición se cumple siempre y cuando el usuario ingrese de 1-3
     }
-//     public void ordenar(int count){
-//         String temp=null;
-//         int index_jugador_uno = randoms();
-//         int aleat = randoms();
-//         int index_jugador_dos = aleat != index_jugador_uno ? aleat : randoms();
-//         temp = simb[index_jugador_uno];
-//         simb[index_jugador_uno] = simb[index_jugador_dos];
-//         simb[index_jugador_dos] = temp;
-//         if (count < 3) {
-//             ordenar(count + 1);
-//         }
-//
-//     }
-//     public int randoms(){
-//        if (aleatorio==null)aleatorio=new Random();
-//        return aleatorio.nextInt();
+
     }
